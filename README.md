@@ -11,12 +11,12 @@
 2. composer install
 3. 「.env.example」ファイルを 「.env」ファイルに命名を変更。または、.envファイルを作成
 4. env以下の環境変数を追加  
-DB_CONNECTION=mysql<br>
-DB_HOST=mysql<br>
-DB_PORT=3306<br>
-DB_DATABASE=laravel_db<br>
-DB_USERNAME=laravel_user<br>
-DB_PASSWORD=laravel_pass<br>
+　DB_CONNECTION=mysql<br>
+　DB_HOST=mysql<br>
+　DB_PORT=3306<br>
+　DB_DATABASE=laravel_db<br>
+　DB_USERNAME=laravel_user<br>
+　DB_PASSWORD=laravel_pass<br>
 6. php artisan key:generate
 7. php artisan migrate
 8. php artisan db:seed
