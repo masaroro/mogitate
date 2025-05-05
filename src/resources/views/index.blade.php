@@ -11,9 +11,9 @@
                 商品一覧
             </h2>
             <div class="product__heading-button">
-                <button type="submit">
+                <a href="/products/register">
                     ＋商品を追加
-                </button>
+                </a>
             </div>
         </div>
         <div class="product__item">
@@ -45,66 +45,78 @@
                     <div class="product__item-image">
                         <img src="" alt="">
                     </div>
-                    <div class="product__item-name">
-                        キウイ
-                    </div>
-                    <div class="product__item-price">
-                        ¥800
-                    </div>
-                </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-name">
-                        ストロベリー
-                    </div>
-                    <div class="product__item-price">
-                        ¥1200
+                    <div class="product__item-tag">
+                        <div class="product__item-name">
+                            キウイ
+                        </div>
+                        <div class="product__item-price">
+                            ¥800
+                        </div>
                     </div>
                 </div>
                 <div class="product__item-card">
                     <div class="product__item-image">
                         <img src="" alt="">
                     </div>
-                    <div class="product__item-name">
-                        オレンジ
-                    </div>
-                    <div class="product__item-price">
-                        ¥850
-                    </div>
-                </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-name">
-                        スイカ
-                    </div>
-                    <div class="product__item-price">
-                        ¥700
+                    <div class="product__item-tag">
+                        <div class="product__item-name">
+                            ストロベリー
+                        </div>
+                        <div class="product__item-price">
+                            ¥1200
+                        </div>
                     </div>
                 </div>
                 <div class="product__item-card">
                     <div class="product__item-image">
                         <img src="" alt="">
                     </div>
-                    <div class="product__item-name">
-                        ピーチ
-                    </div>
-                    <div class="product__item-price">
-                        ¥1000
+                    <div class="product__item-tag">
+                        <div class="product__item-name">
+                            オレンジ
+                        </div>
+                        <div class="product__item-price">
+                            ¥850
+                        </div>
                     </div>
                 </div>
                 <div class="product__item-card">
                     <div class="product__item-image">
                         <img src="" alt="">
                     </div>
-                    <div class="product__item-name">
-                        シャインマスカット
+                    <div class="product__item-tag">
+                        <div class="product__item-name">
+                            スイカ
+                        </div>
+                        <div class="product__item-price">
+                            ¥700
+                        </div>
                     </div>
-                    <div class="product__item-price">
-                        ¥1400
+                </div>
+                <div class="product__item-card">
+                    <div class="product__item-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="product__item-tag">
+                        <div class="product__item-name">
+                            ピーチ
+                        </div>
+                        <div class="product__item-price">
+                            ¥1000
+                        </div>
+                    </div>
+                </div>
+                <div class="product__item-card">
+                    <div class="product__item-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="product__item-tag">
+                        <div class="product__item-name">
+                            シャインマスカット
+                        </div>
+                        <div class="product__item-price">
+                            ¥1400
+                        </div>
                     </div>
                 </div>
             </div>
