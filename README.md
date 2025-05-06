@@ -19,7 +19,8 @@
 　DB_PASSWORD=laravel_pass<br>
 6. php artisan key:generate
 7. php artisan migrate
-8. php artisan db:seed
+8. php artisan storage:link
+9. php artisan db:seed
 
 ## 使用技術(実行環境)
 - PHP 7.4.9
