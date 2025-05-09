@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Product;
+use App\Models\Season;
 
 class CreateProductSeasonTable extends Migration
 {
@@ -18,8 +20,10 @@ class CreateProductSeasonTable extends Migration
             $table->foreignId('product_id')
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->foreignId('season_id');
+            $table->foreignId('season_id')
+                ->constrained();
             $table->timestamps();
+            $table->unique(['product_id', 'season_id']);
         });
     }
 

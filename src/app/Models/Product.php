@@ -15,4 +15,8 @@ class Product extends Model
         'image',
         'description'
     ];
+
+    public function seasons(){
+        return $this->belongsTo(Season::class,'product_season');
+    }
 }

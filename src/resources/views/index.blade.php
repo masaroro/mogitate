@@ -41,84 +41,24 @@
             </form>
             <!-- koko -->
             <div class="product__item-list">
+                @foreach ($products as $product)
                 <div class="product__item-card">
                     <div class="product__item-image">
-                        <img src="" alt="">
+                        <img src="{{ $product->image }}" alt="">
                     </div>
                     <div class="product__item-tag">
                         <div class="product__item-name">
-                            キウイ
+                            {{ $product->name }}
                         </div>
                         <div class="product__item-price">
-                            ¥800
+                            <span>￥</span>{{ $product->price }}
                         </div>
                     </div>
                 </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-tag">
-                        <div class="product__item-name">
-                            ストロベリー
-                        </div>
-                        <div class="product__item-price">
-                            ¥1200
-                        </div>
-                    </div>
-                </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-tag">
-                        <div class="product__item-name">
-                            オレンジ
-                        </div>
-                        <div class="product__item-price">
-                            ¥850
-                        </div>
-                    </div>
-                </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-tag">
-                        <div class="product__item-name">
-                            スイカ
-                        </div>
-                        <div class="product__item-price">
-                            ¥700
-                        </div>
-                    </div>
-                </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-tag">
-                        <div class="product__item-name">
-                            ピーチ
-                        </div>
-                        <div class="product__item-price">
-                            ¥1000
-                        </div>
-                    </div>
-                </div>
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="" alt="">
-                    </div>
-                    <div class="product__item-tag">
-                        <div class="product__item-name">
-                            シャインマスカット
-                        </div>
-                        <div class="product__item-price">
-                            ¥1400
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+            </div>
+            <div class="product__pagination">
+                {{ $products->links() }}
             </div>
             <!-- koko -->
         </div>
