@@ -44,7 +44,7 @@
                 @foreach ($products as $product)
                 <div class="product__item-card">
                     <div class="product__item-image">
-                        <img src="{{ $product->image }}" alt="">
+                        <img src="{{ url($product->image) }}" alt="">
                     </div>
                     <div class="product__item-tag">
                         <div class="product__item-name">

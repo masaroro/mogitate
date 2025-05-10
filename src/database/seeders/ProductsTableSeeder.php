@@ -16,7 +16,10 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         $dummyImageDir = database_path('seeders/data/images/');
-        $destinationPath = 'images/products/';
+        $destinationDir = 'public/images/products';
+        $databaseImagePathPrefix = env('APP_URL') . '/storage/images/products/';
+
+        Storage::disk('public')->makeDirectory($destinationDir);
 
         $products = [
             [
@@ -87,13 +90,14 @@ class ProductsTableSeeder extends Seeder
 
             if (file_exists($sourcePath)) {
                 $databaseImagePath = $destinationPath . $product['image'];
-                Storage::copy($sourcePath,$databaseImagePath);
+                Storage::disk('public')->copy($sourcePath, $databaseImagePath);
+                $databaseImagePath = $databaseImagePathPrefix . $product['image'];
             }
 
             DB::table('products')->insert([
                 'name' => $product['name'],
                 'price' => $product['price'],
-                'image' => $databaseImagePath,
+                'image' => $product['image'],
                 'description' => $product['description'],
                 'created_at' => now(),
                 'updated_at' => now(),
