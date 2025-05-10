@@ -94,6 +94,10 @@
     background-color: #E0DFDE;
     text-align: center;
 }
+.product__item-image img {
+    width: 100%;
+    height: 100%;
+}
 .product__item-tag {
     padding: 10px 10px;
     display: flex;
