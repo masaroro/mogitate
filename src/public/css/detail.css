@@ -1,0 +1,34 @@
+.product__content {
+    width: 60%;
+    margin: 40px auto;
+}
+.product__content-title {
+    margin-bottom: 10px;
+}
+.product__content-title a {
+    text-decoration: none;
+}
+
+.product__item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.product__item-image {
+    width: 50%;
+    padding-right: 20px;
+}
+.product__item-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.product__detail {
+    width: 50%;
+    background-color:yellow;
+}
+
+.product__text {
+    background-color: red;
+    margin-top: 30px;
+}

@@ -17,6 +17,12 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/products',[ProductController::class,'index']);
+Route::get('/products/{productId}',[ProductController::class,'show']);
+// Route::get('/products/{productId/update}',   [ProductController::class,'show']);
+
 Route::get('/products/register',[ProductController::class,'store']);
+
+// Route::get('/products/search',[ProductController::class,'store']);
+
+// Route::get('/products/{productId}/delete',[ProductController::class,'delete']);

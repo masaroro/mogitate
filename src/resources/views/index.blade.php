@@ -39,28 +39,30 @@
                     <!-- あとで追加予定 -->
                 </div>
             </form>
-            <!-- koko -->
-            <div class="product__item-list">
-                @foreach ($products as $product)
-                <div class="product__item-card">
-                    <div class="product__item-image">
-                        <img src="/storage/images/{{ $product->image }}" alt="">
+            <div class="product__item-block">
+                <div class="product__item-list">
+                    @foreach ($products as $product)
+                    <div class="product__item-card">
+                        <a href="/products/{{ $product->id }}">
+                            <div class="product__item-image">
+                                <img src="/storage/images/{{ $product->image }}" alt="">
+                            </div>
+                            <div class="product__item-tag">
+                                <div class="product__item-name">
+                                    {{ $product->name }}
+                                </div>
+                                <div class="product__item-price">
+                                    <span>￥</span>{{ $product->price }}
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="product__item-tag">
-                        <div class="product__item-name">
-                            {{ $product->name }}
-                        </div>
-                        <div class="product__item-price">
-                            <span>￥</span>{{ $product->price }}
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                @endforeach
+                <div class="product__pagination">
+                    {{ $products->links() }}
+                </div>
             </div>
-            <div class="product__pagination">
-                {{ $products->links() }}
-            </div>
-            <!-- koko -->
         </div>
     </div>
 @endsection('content')
