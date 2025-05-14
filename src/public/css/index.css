@@ -7,7 +7,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .product__heading-title {
     font-size: 25px;
@@ -85,9 +85,12 @@
 }
 .product__item-card {
     width: 32%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     box-shadow: 0px 3px 10px #0000001A;
+}
+.product__item-card a {
     text-decoration: none;
+    color: inherit;
 }
 .product__item-image {
     margin: 0 auto;
@@ -105,3 +108,54 @@
     justify-content: space-between;
 }
 
+/* ページネーション関連 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.pagination li {
+    margin: 0 4px;
+}
+.pagination li a,
+.pagination li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #343a40;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.pagination li a:hover {
+    background-color: #e9ecef;
+}
+.pagination li.active span {
+    background-color: #ffc107;
+    color: #fff;
+}
+.pagination li.disabled span {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #f8f9fa;
+}
+.pagination li:first-child a,
+.pagination li:last-child a {
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+.pagination li svg {
+    width: 24px;
+    height: 24px;
+    fill: #343a40;
+}
