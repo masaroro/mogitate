@@ -7,6 +7,11 @@
 @section('content')
     <div class="product__content">
         <div class="product__heading">
+            @if(!empty(request('keyword')))
+            <h2 class="product__heading-title">
+                "{{request('keyword')}}"の商品一覧
+            </h2>
+            @else
             <h2 class="product__heading-title">
                 商品一覧
             </h2>
@@ -15,25 +20,24 @@
                     ＋商品を追加
                 </a>
             </div>
+            @endif
         </div>
         <div class="product__item">
-            <form class="product__search-form" action="/">
+            <form class="product__search-form" action="/products/search" method="post">
                 @csrf
-                <div class="product__search-input">
-                    <input type="text" placeholder="商品名で検索" value="">
-                </div>
+                <input class="product__search-input" type="text" name="keyword" placeholder="商品名で検索" value="{{ request('keyword') }}">
                 <div class="product__search-button">
-                    <button class="" type="submit">
+                    <button type="submit">
                         検索
                     </button>
                 </div>
                 <div class="product__search-text">
                     価格順で表示
                 </div>
-                <select class="product__search-select" name="">
-                    <option value="">価格で並べ替え</option>
-                    <option value="high">高い順に表示</option>
-                    <option value="low">低い順に表示</option>
+                <select class="product__search-select" name="sort">
+                    <option value="" {{ old('sort', '') == '' ? 'selected' : '' }}>価格で並べ替え</option>
+                    <option value="high" {{ old('sort')=="high" ? 'selected' : '' }}>高い順に表示</option>
+                    <option value="low" {{ old('sort')=="low" ? 'selected' : '' }}>低い順に表示</option>
                 </select>
                 <div class="">
                     <!-- あとで追加予定 -->

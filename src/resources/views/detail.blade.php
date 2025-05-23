@@ -10,19 +10,17 @@
             <a href="/products">商品一覧</a>
             <span>>{{$product->name}}</span>
         </div>
-        <form class="product__form" action="">
+        <form class="product__form" action="/products/{{$product->id}}" method="get">
             @csrf
             <div class="product__item">
                 <div class="product__item-image">
                     <img src="/storage/images/{{ $product->image }}">
                     <div class="product__item-input">
-                        <label for="file_photo">
-                            <!-- ファイルを選択 -->
-                            <input type="file" name="file" id="file_photo" value="{{ old('file') }}"/>
+                        <label class="product__item-file" for="file_photo">
+                            <input type="file" name="file" id="file_photo" accept=".jpg, .jpeg, .png"/>
+                            ファイルを選択
                         </label>
-                        <span>
-                            <!-- ここに表示 -->
-                        </span>
+                        <span>{{$product->image}}</span>
                     </div>
                 </div>
                 <div class="product__detail">
@@ -43,26 +41,13 @@
                             季節
                         </div>
                         <fieldset class="product__season-item">
+                            @foreach ($seasons as $season)
                             <label class="product__season-item-label">
-                                <input type="checkbox" name="seasons[]" value="spring">
+                                <input type="checkbox" name="seasons[]" value="{{ $season->id }}" {{ $product->seasons->contains('id', $season->id) ? 'checked' : ''}}>
                                 <span></span>
-                                    春
+                                    {{ $season->name }}
                             </label>
-                            <label class="product__season-item-label">
-                                <input type="checkbox" name="seasons[]" value="summer">
-                                <span></span>
-                                    夏
-                            </label>
-                            <label class="product__season-item-label">
-                                <input type="checkbox" name="seasons[]" value="autumn">
-                                <span></span>
-                                    秋
-                            </label>
-                            <label class="product__season-item-label">
-                                <input type="checkbox" name="seasons[]" value="winter">
-                                <span></span>
-                                    冬
-                            </label>
+                            @endforeach
                         </fieldset>
                     </div>
                 </div>
@@ -75,6 +60,14 @@
                     <textarea name="description" placeholder="商品の説明を記入">{{$product->description}}</textarea>
                 </div>
             </div>
+            <div class="product__button-block">
+                <div class="product__button-inner">
+                    <input class="product__button-back" type="submit" value="戻る" name="back">
+                    <input class="product__button-save" type="submit" value="変更を保存" name="register">
+                </div>
+                <input class="product__button-delete" type="submit" value="削除" name="delete">
+            </div>
+            <input type="hidden" name="id" value="{{ $product->id }}">
         </form>
     </div>
 @endsection
