@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -31,12 +32,33 @@ class ProductController extends Controller
         }
 
         $products = $query->paginate(6);
+        $request->flashOnly(['keyword', 'sort']);
 
         return view('index', compact('products'));
     }
 
-    public function store(){
-        return view('register');
+    public function create(){
+        $seasons = Season::all();
+        return view('register',compact('seasons'));
+    }
+
+    public function store(ProductRequest $request){
+        $file_name = null;
+        if ($request->hasFile('image')) {
+            $file_name = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/images',$file_name);
+        }
+
+        $product = Product::create([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'description' => $request->input('description'),
+            'image' => $file_name,
+        ]);
+
+        $product->seasons()->sync($request->input('seasons'));
+
+        return redirect('/products');
     }
 
     public function show($productId,Request $request){

@@ -34,14 +34,22 @@
                 <div class="product__search-text">
                     価格順で表示
                 </div>
-                <select class="product__search-select" name="sort">
-                    <option value="" {{ old('sort', '') == '' ? 'selected' : '' }}>価格で並べ替え</option>
-                    <option value="high" {{ old('sort')=="high" ? 'selected' : '' }}>高い順に表示</option>
-                    <option value="low" {{ old('sort')=="low" ? 'selected' : '' }}>低い順に表示</option>
+                <select class="product__search-select" name="sort" required>
+                    <option value="">価格で並べ替え</option>
+                    <option value="high" {{ request('sort')=="high" ? 'selected' : '' }}>高い順に表示</option>
+                    <option value="low" {{ request('sort')=="low" ? 'selected' : '' }}>低い順に表示</option>
                 </select>
-                <div class="">
-                    <!-- あとで追加予定 -->
+                @if(!empty(request('sort')))
+                <div class="product__sort-message">
+                    @if(request('sort')== 'high')
+                        <p>高い順に表示</p>
+                        <a href="/products" class="product__sort-reset">×</a>
+                    @elseif(request('sort')== 'low')
+                        <p>低い順に表示</p>
+                        <a href="/products" class="product__sort-reset">×</a>
+                    @endif
                 </div>
+                @endif
             </form>
             <div class="product__item-block">
                 <div class="product__item-list">

@@ -9,7 +9,7 @@
         <div class="register__heading">
             <h2>商品登録</h2>
         </div>
-        <form class="register__form" action="/register" method="post">
+        <form class="register__form" action="/products" method="post" enctype="multipart/form-data">
             @csrf
             <div class="register__item">
                 <div class="register__item-label">
@@ -18,10 +18,10 @@
                 </div>
                 <div class="register__item-input">
                     <input type="text" name="name" placeholder="商品名を入力" value="{{ old('name') }}"/>
-                    <div class="error">
-                    @error('name')
-                        {{ $message }}
-                    @enderror
+                    <div class="register__form__error-message">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -31,11 +31,11 @@
                     <span>必須</span>
                 </div>
                 <div class="register__item-input">
-                    <input type="number" name="price" placeholder="値段を入力" value="{{ old('value') }}"/>
-                    <div class="error">
-                    @error('value')
-                        {{ $message }}
-                    @enderror
+                    <input type="number" name="price" placeholder="値段を入力" value="{{ old('price') }}"/>
+                    <div class="register__form__error-message">
+                        @error('price')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -45,11 +45,11 @@
                     <span>必須</span>
                 </div>
                 <div class="register__item-image">
-                    <input class="register__item-file" type="file" name="image" placeholder="ファイルを選択" value="{{ old('file') }}"/>
-                    <div class="error">
-                    @error('file')
-                        {{ $message }}
-                    @enderror
+                    <input class="register__item-file" type="file" name="image" placeholder="ファイルを選択" value=""/>
+                    <div class="register__form__error-message">
+                        @error('image')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -59,24 +59,21 @@
                     <span>必須</span>
                     <span>複数選択可</span>
                 </div>
-                <fieldset class="register__item-season">
-                    <label class="register__item-season-label">
-                        <input type="checkbox" name="seasons[]" value="spring">
-                            春
-                    </label>
-                    <label class="register__item-season-label">
-                        <input type="checkbox" name="seasons[]" value="summer">
-                            夏
-                    </label>
-                    <label class="register__item-season-label">
-                        <input type="checkbox" name="seasons[]" value="autumn">
-                            秋
-                    </label>
-                    <label class="register__item-season-label">
-                        <input type="checkbox" name="seasons[]" value="winter">
-                            冬
-                    </label>
-                </fieldset>
+                <div class="register__season-list">
+                    <fieldset class="register__item-season">
+                        @foreach ($seasons as $season)
+                        <label class="register__item-season-label">
+                            <input type="checkbox" name="seasons[]" value="{{ $season->id }}" {{ in_array($season->id, old('seasons', [])) ? 'checked' : '' }}>
+                                {{ $season->name }}
+                        </label>
+                        @endforeach
+                    </fieldset>
+                    <div class="register__form__error-message">
+                        @error('seasons')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
             </div>
             <div class="register__item">
                 <div class="register__item-label">
@@ -84,17 +81,17 @@
                     <span>必須</span>
                 </div>
                 <div class="register__item-input">
-                    <textarea name="description" placeholder="商品の説明を入力">
-                    </textarea>
-                    <div class="error">
-                    @error('value')
-                        {{ $message }}
-                    @enderror
+                    <textarea name="description" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
+                    <div class="register__form__error-message">
+                        @error('description')
+                            {{ $message }}
+                        @enderror
                     </div>
+                </div>
                 </div>
             </div>
             <div class="register__button">
-                <input class="register__button-back" type="submit" value="戻る" name="back">
+                <a href="/products" class="register__button-back">戻る</a>
                 <input class="register__button-save" type="submit" value="登録" name="register">
             </div>
         </form>
