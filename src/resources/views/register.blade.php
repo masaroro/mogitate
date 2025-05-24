@@ -44,7 +44,7 @@
                     <span>商品画像</span>
                     <span>必須</span>
                 </div>
-                <div class="register__item-input">
+                <div class="register__item-image">
                     <input class="register__item-file" type="file" name="image" placeholder="ファイルを選択" value="{{ old('file') }}"/>
                     <div class="error">
                     @error('file')

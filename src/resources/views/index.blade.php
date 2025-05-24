@@ -23,7 +23,7 @@
             @endif
         </div>
         <div class="product__item">
-            <form class="product__search-form" action="/products/search" method="post">
+            <form class="product__search-form" action="/products/search" method="get">
                 @csrf
                 <input class="product__search-input" type="text" name="keyword" placeholder="商品名で検索" value="{{ request('keyword') }}">
                 <div class="product__search-button">
@@ -47,7 +47,7 @@
                 <div class="product__item-list">
                     @foreach ($products as $product)
                     <div class="product__item-card">
-                        <a href="/products/{{ $product->id }}">
+                        <a href="/products/{{ $product->id }}?_from={{ urlencode(request()->fullUrl()) }}">
                             <div class="product__item-image">
                                 <img src="/storage/images/{{ $product->image }}" alt="">
                             </div>
@@ -64,7 +64,7 @@
                     @endforeach
                 </div>
                 <div class="product__pagination">
-                    {{ $products->links('vendor.pagination.default') }}
+                    {{ $products->appends(request()->query())->links('vendor.pagination.default') }}
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
             <a href="/products">商品一覧</a>
             <span>>{{$product->name}}</span>
         </div>
-        <form class="product__form" action="/products/{{$product->id}}" method="get">
+        <form class="product__form" action="/products/{{$product->id}}" method="post">
             @csrf
             <div class="product__item">
                 <div class="product__item-image">
