@@ -64,6 +64,7 @@
                         @foreach ($seasons as $season)
                         <label class="register__item-season-label">
                             <input type="checkbox" name="seasons[]" value="{{ $season->id }}" {{ in_array($season->id, old('seasons', [])) ? 'checked' : '' }}>
+                            <span></span>
                                 {{ $season->name }}
                         </label>
                         @endforeach

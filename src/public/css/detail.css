@@ -13,10 +13,11 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 .product__item-image {
     width: 50%;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 .product__item-image img {
     width: 100%;
@@ -38,29 +39,29 @@
     margin-left: 10px;
 }
 .product__item-label {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .product__detail {
     width: 50%;
 }
 .product__name input,.product__price input {
     width: 100%;
-    margin-bottom: 20px;
     padding: 10px 10px;
     border: 1px solid #E0DFDE;
     appearance: none;
     border-radius: 3px;
 }
-.product__text {
-    margin-top: 30px;
+.product__name,.product__price {
+    margin-bottom: 20px;
 }
 .product__season-item {
+    padding: 5px 0 0 0;
     display: flex;
     border: none;
     align-items: center;
 }
 .product__season-item-label {
-    margin-right: 30px;
+    margin-right: 40px;
     cursor: pointer;
     align-items: center;
     text-align: center;
@@ -75,9 +76,9 @@
     display: inline-block;
     width: 18px;
     height: 18px;
-    border-radius: 50%;
     border: 2px solid #777;
-    margin-right: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
     background-color: #fff;
     transition: all 0.2s ease;
     box-sizing: border-box;
@@ -89,18 +90,17 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-
+.product__textarea {
+    width: 100%;
+}
 .product__textarea textarea {
     width: 100%;
     height: 160px;
     padding: 10px 10px;
     border: 1px solid #E0DFDE;
-    appearance: none;
     border-radius: 3px;
     line-height: 150%;
-}
-.product__textarea {
-    width: 100%;
+    appearance: none;
 }
 
 .product__button-block {
@@ -121,17 +121,23 @@
 .product__button-save {
     padding: 15px 20px;
     width: 200px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     border: none;
 }
 .product__button-back {
-    background-color: #E0DFDE;
+    text-align: center;
     color: #4B4B4B;
+    text-decoration: none;
+    background-color: #E0DFDE;
 }
 .product__button-save {
-    background-color: #F5C800;
     color: #4B4B4B;
+    background-color: #F5C800;
+}
+.product-delete__form {
+    position: relative;
 }
 .product__button-delete {
     background-color: #F8F8F8;
@@ -140,6 +146,14 @@
     border-radius: 5px;
     cursor: pointer;
     border: none;
-    position: absolute;
     right: 0;
+    position: absolute;
+    transform: translate(0, -100%);
+}
+
+.detail__form__error-message {
+    padding-left:5px;
+    font-size: 80%;
+    color: #FD0707;
+    margin-top: 10px;
 }

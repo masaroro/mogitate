@@ -34,8 +34,8 @@
                 <div class="product__search-text">
                     価格順で表示
                 </div>
-                <select class="product__search-select" name="sort" required>
-                    <option value="">価格で並べ替え</option>
+                <select class="product__search-select" name="sort">
+                    <option value="" {{ request('sort')=="" ? 'selected' : '' }}>価格で並べ替え</option>
                     <option value="high" {{ request('sort')=="high" ? 'selected' : '' }}>高い順に表示</option>
                     <option value="low" {{ request('sort')=="low" ? 'selected' : '' }}>低い順に表示</option>
                 </select>
@@ -55,7 +55,7 @@
                 <div class="product__item-list">
                     @foreach ($products as $product)
                     <div class="product__item-card">
-                        <a href="/products/{{ $product->id }}?_from={{ urlencode(request()->fullUrl()) }}">
+                        <a href="/products/{{ $product->id }}">
                             <div class="product__item-image">
                                 <img src="/storage/images/{{ $product->image }}" alt="">
                             </div>
